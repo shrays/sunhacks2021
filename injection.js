@@ -7,6 +7,7 @@ window.onload = function() {
 	const run = async () => {
 		console.warn('test');
 		if (isRecording) {
+			console.warn('test4');
 			if (socket) {
 				socket.send(JSON.stringify({terminate_session: true}));
 				socket.close();
