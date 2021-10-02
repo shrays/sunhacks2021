@@ -82,13 +82,14 @@ window.onload = function() {
 		}
 	};
 	
-	$('input').mousedown(function() {
+	$('input').on('mousedown', function() {
 		textBox = $(this);
 		isRecording = false;
 		run();
 	});
-	$('input').mouseup(function() {
+	
+	$('input').on('mouseup', function() {
 		isRecording = true;
 		run();
-	}
+	});
 }
