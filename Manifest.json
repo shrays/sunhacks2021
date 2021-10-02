@@ -1,0 +1,10 @@
+{
+    "manifest_version": 2,
+    "name": "Speech to Text Extension",
+    "description": "This extension discovers input boxes and enables speech accessibility.",
+    "version": "1.0",
+    "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "window.html"
+    }
+    }
