@@ -5,6 +5,7 @@ window.onload = function() {
 	let recorder;
 	
 	const run = async () => {
+		console.warn('test');
 		if (isRecording) {
 			if (socket) {
 				socket.send(JSON.stringify({terminate_session: true}));
@@ -46,7 +47,6 @@ window.onload = function() {
 			
 			socket.onopen = () => {
 			  // once socket is open, begin recording
-				messageEl.style.display = '';
 				navigator.mediaDevices.getUserMedia({ audio: true })
 					.then((stream) => {
 						recorder = new RecordRTC(stream, {
@@ -79,8 +79,6 @@ window.onload = function() {
 		}
 	};
 	isRecording = !isRecording;
-	buttonEl.innerText = isRecording ? 'Stop' : 'Record';
-	titleEl.innerText = isRecording ? 'Click stop to end recording!' : 'Click start to begin recording!'
 	
 	$('input').on('click', function() {
 		textBox = $(this);
