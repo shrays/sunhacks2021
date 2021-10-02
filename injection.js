@@ -80,8 +80,9 @@ window.onload = function() {
 				.catch((err) => console.error(err));
 			};
 		}
+		
+		isRecording = !isRecording;
 	};
-	isRecording = !isRecording;
 	
 	$('input').on('click', function() {
 		textBox = $(this);
