@@ -18,6 +18,7 @@ window.onload = function() {
 				recorder = null;
 			}
 		} else {
+			console.warn('test2');
 			const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
 			const data = await response.json();
 			const { token } = data;
@@ -29,6 +30,7 @@ window.onload = function() {
 				console.log(event)
 			}
 			
+			console.warn('test3');
 			// handle incoming messages to display transcription to the DOM
 			const texts = {};
 			socket.onmessage = (message) => {
