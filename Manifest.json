@@ -14,7 +14,7 @@
 	[
 		{
 			"matches": ["http://*/*", "https://*/*"],
-			"js": ["jquery-3.6.0.js", "injection.js"],
+			"js": ["jquery-3.6.0.js", "RecordRTC.js", "injection.js"],
 			"run_at": "document_end"
 		}
 	],
