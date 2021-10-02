@@ -1,10 +1,26 @@
 { 
-    "manifest_version": 2,
-    "name": "Speech to Text Extension",
+	"name": "Speech to Text Extension",
     "description": "This extension discovers input boxes and enables speech accessibility.",
     "version": "1.0",
-    "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "window.html"
-    }
-    }
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "background.js"
+    },
+	"permissions": ["storage", "tabs", "activeTab"],
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"128": "icon.png"
+		}
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["injection.js"]
+		}
+	],
+	"icons": {
+		"128": "icon.png"
+	}
+}
