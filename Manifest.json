@@ -3,7 +3,7 @@
     "description": "This extension discovers input boxes and enables speech accessibility.",
     "version": "1.0",
 	"manifest_version": 3,
-	"permissions": ["storage", "tabs", "activeTab"],
+	"permissions": ["storage", "tabs", "activeTab", "audioCapture"],
 	"action": {
 		"default_popup": "popup.html",
 		"default_icon": {
