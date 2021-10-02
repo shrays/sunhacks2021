@@ -80,12 +80,15 @@ window.onload = function() {
 				.catch((err) => console.error(err));
 			};
 		}
-		
-		isRecording = !isRecording;
 	};
 	
-	$('input').on('click', function() {
+	$('input').mousedown(function() {
 		textBox = $(this);
+		isRecording = false;
 		run();
 	});
+	$('input').mouseup(function() {
+		isRecording = true;
+		run();
+	}
 }
