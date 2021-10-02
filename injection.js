@@ -1,3 +1,5 @@
 window.onload = function() {
-	document.write('Hello World');
+$('input').on('click', function() {
+		$(this).val("bruh");
+	});
 }
