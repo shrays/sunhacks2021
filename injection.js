@@ -109,4 +109,17 @@ window.onload = function() {
 			}
 		}
 	});
+	
+	$('input').on('mouseout', function() {
+		while(true) 
+		{
+			if(!currentlyProcessing) {
+				currentlyProcessing = true;
+				isRecording = true;
+				run();
+				currentlyProcessing = false;
+				break;
+			}
+		}
+	});
 }
