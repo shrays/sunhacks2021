@@ -5,6 +5,8 @@ window.onload = function() {
 	let recorder;
 	let currentlyProcessing = false;
 	
+	$('input').parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "https://joshahles.com/wp-content/uploads/2021/10/logoRed.png" alt = "Iatlian Trulli"/></div>');
+	
 	const run = async () => {
 		console.warn('test');
 		if (isRecording) {
@@ -86,8 +88,8 @@ window.onload = function() {
 		}
 	};
 	
-	$('input').on('mousedown', function() {
-		textBox = $(this);
+	$('.sizeHandle').on('mousedown', function() {
+		textBox = $(this).siblings('input:first');
 		while(true) 
 		{
 			if(!currentlyProcessing) {
@@ -99,7 +101,7 @@ window.onload = function() {
 		}
 	});
 	
-	$('input').on('mouseup', function() {
+	$('.sizeHandle').on('mouseup', function() {
 		while(true) 
 		{
 			if(!currentlyProcessing) {
@@ -111,7 +113,7 @@ window.onload = function() {
 		}
 	});
 	
-	$('input').on('mouseout', function() {
+	$('.sizeHandle').on('mouseout', function() {
 		while(true) 
 		{
 			if(!currentlyProcessing) {
