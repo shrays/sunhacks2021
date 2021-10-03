@@ -112,13 +112,15 @@ window.onload = function() {
 	});
 	
 	$('input').on('mouseout', function() {
-		while(true) 
-		{
-			if(!currentlyProcessing) {
-				currentlyProcessing = true;
-				run();
-				currentlyProcessing = false;
-				break;
+		if($(this).data('clicked')) {
+			while(true) 
+			{
+				if(!currentlyProcessing) {
+					currentlyProcessing = true;
+					run();
+					currentlyProcessing = false;
+					break;
+				}
 			}
 		}
 	});
