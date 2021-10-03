@@ -5,12 +5,13 @@ window.onload = function() {
 	let recorder;
 	let currentlyProcessing = false;
 	
-	$('input').parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "https://joshahles.com/wp-content/uploads/2021/10/logoRed.png" alt = "Iatlian Trulli"/></div>');
+	$('input').filter(function() 
+	{
+		return $(this).attr('type') == 'text';
+	}).parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "https://joshahles.com/wp-content/uploads/2021/10/logoRed.png" alt = "Iatlian Trulli"/></div>');
 	
 	const run = async () => {
-		console.warn('test');
 		if (isRecording) {
-			console.warn('test4');
 			if (socket) {
 				socket.send(JSON.stringify({terminate_session: true}));
 				socket.close();
@@ -18,13 +19,11 @@ window.onload = function() {
 			}
 			
 			if (recorder) {
-				console.warn('test5');
 				recorder.stopRecording();
 				recorder = null;
 			}
 			isRecording = false;
 		} else {
-			console.warn('test2');
 			const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
 			const data = await response.json();
 			const { token } = data;
@@ -36,7 +35,6 @@ window.onload = function() {
 				console.log(event)
 			}
 			
-			console.warn('test3');
 			// handle incoming messages to display transcription to the DOM
 			const texts = {};
 			socket.onmessage = (message) => {
@@ -89,10 +87,10 @@ window.onload = function() {
 	};
 	
 	$('.sizeHandle').on('mousedown', function() {
-		textBox = $(this).siblings('input:first');
 		while(true) 
 		{
 			if(!currentlyProcessing) {
+				textBox = $(this).parent().siblings('input:first');
 				currentlyProcessing = true;
 				run();
 				currentlyProcessing = false;
