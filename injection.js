@@ -16,6 +16,7 @@ window.onload = function() {
 			}
 			
 			if (recorder) {
+				console.warn('test5');
 				recorder.pauseRecording();
 				recorder = null;
 			}
