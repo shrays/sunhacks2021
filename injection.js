@@ -6,7 +6,7 @@ window.onload = function() {
 	
 	$('input').filter(function() {
 		return $(this).attr('type') == 'text';
-	}).parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "https://joshahles.com/wp-content/uploads/2021/10/logoRed.png" alt = "Iatlian Trulli"/></div>');
+	}).parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "recordButton.png"></div>');
 	
 	const start = async () => {
 		const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
