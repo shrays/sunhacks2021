@@ -85,20 +85,28 @@ window.onload = function() {
 	
 	$('input').on('mousedown', function() {
 		textBox = $(this);
-		if(!currentlyProcessing) {
-			currentlyProcessing = true;
-			isRecording = false;
-			run();
-			currentlyProcessing = false;
+		while(true) 
+		{
+			if(!currentlyProcessing) {
+				currentlyProcessing = true;
+				isRecording = false;
+				run();
+				currentlyProcessing = false;
+				break;
+			}
 		}
 	});
 	
 	$('input').on('mouseup', function() {
-		if(!currentlyProcessing) {
-			currentlyProcessing = true;
-			isRecording = true;
-			run();
-			currentlyProcessing = false;
+		while(true) 
+		{
+			if(!currentlyProcessing) {
+				currentlyProcessing = true;
+				isRecording = true;
+				run();
+				currentlyProcessing = false;
+				break;
+			}
 		}
 	});
 }
