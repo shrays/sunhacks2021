@@ -4,7 +4,6 @@ window.onload = function() {
 	let socket;
 	let recorder;
 	let currentlyProcessing = false;
-	let clicked = false;
 	
 	const run = async () => {
 		console.warn('test');
@@ -89,7 +88,6 @@ window.onload = function() {
 	
 	$('input').on('mousedown', function() {
 		textBox = $(this);
-		clicked = true;
 		while(true) 
 		{
 			if(!currentlyProcessing) {
@@ -114,16 +112,13 @@ window.onload = function() {
 	});
 	
 	$('input').on('mouseout', function() {
-		if(clicked) {
-			clicked = false;
-			while(true) 
-			{
-				if(!currentlyProcessing) {
-					currentlyProcessing = true;
-					run();
-					currentlyProcessing = false;
-					break;
-				}
+		while(true) 
+		{
+			if(!currentlyProcessing) {
+				currentlyProcessing = true;
+				run();
+				currentlyProcessing = false;
+				break;
 			}
 		}
 	});
