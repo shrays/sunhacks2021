@@ -6,7 +6,7 @@ window.onload = function() {
 	
 	$('input').filter(function() {
 		return $(this).attr('type') == 'text';
-	}).parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "recordButton.png"></div>');
+	}).parent().append('<div class = "micButton"><img id = "handleImg" class = "sizeHandle" src = "https://raw.githubusercontent.com/shrays/sunhacks2021/main/recordButton.png"></div>');
 	
 	const start = async () => {
 		const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
