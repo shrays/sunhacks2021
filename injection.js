@@ -20,6 +20,7 @@ window.onload = function() {
 				recorder.stopRecording();
 				recorder = null;
 			}
+			isRecording = false;
 		} else {
 			console.warn('test2');
 			const response = await fetch('http://localhost:5000'); // get temp session token from server.js (backend)
@@ -81,6 +82,7 @@ window.onload = function() {
 				})
 				.catch((err) => console.error(err));
 			};
+			isRecording = true;
 		}
 	};
 	
@@ -90,7 +92,6 @@ window.onload = function() {
 		{
 			if(!currentlyProcessing) {
 				currentlyProcessing = true;
-				isRecording = false;
 				run();
 				currentlyProcessing = false;
 				break;
@@ -103,7 +104,6 @@ window.onload = function() {
 		{
 			if(!currentlyProcessing) {
 				currentlyProcessing = true;
-				isRecording = true;
 				run();
 				currentlyProcessing = false;
 				break;
@@ -116,7 +116,6 @@ window.onload = function() {
 		{
 			if(!currentlyProcessing) {
 				currentlyProcessing = true;
-				isRecording = true;
 				run();
 				currentlyProcessing = false;
 				break;
