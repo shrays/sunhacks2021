@@ -3,6 +3,7 @@ window.onload = function() {
 	let isRecording = false;
 	let socket;
 	let recorder;
+	let currentlyProcessing = false;
 	
 	const run = async () => {
 		console.warn('test');
@@ -84,12 +85,20 @@ window.onload = function() {
 	
 	$('input').on('mousedown', function() {
 		textBox = $(this);
-		isRecording = false;
-		run();
+		if(!currentlyProcessing) {
+			currentlyProcessing = true;
+			isRecording = false;
+			run();
+			currentlyProcessing = false;
+		}
 	});
 	
 	$('input').on('mouseup', function() {
-		isRecording = true;
-		run();
+		if(!currentlyProcessing) {
+			currentlyProcessing = true;
+			isRecording = true;
+			run();
+			currentlyProcessing = false;
+		}
 	});
 }
